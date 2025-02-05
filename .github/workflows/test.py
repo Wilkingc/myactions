@@ -6,8 +6,4 @@ def bye():
 
 print(hello())
 
-hello = "mami que sera lo que tiene el negro?"
-cnt = 0
-for i in hello:
-  cnt += i
  

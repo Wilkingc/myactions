@@ -29,4 +29,6 @@ jobs:
           args: |
             --config .pylintrc 
             --relative=yes 
-            --convention pylint
+            --convention pylint 
+        env:
+          GITHUB_TOKEN: ${{ secrets.SUPER_LINTER_TOKEN }}

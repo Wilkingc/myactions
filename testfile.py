@@ -1,6 +1,3 @@
-def hello():
-  print("Hi")
-
-print(hello())
-
+mystring = "It works!!!!!"
+print(mystring)
  

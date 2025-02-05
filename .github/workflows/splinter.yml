@@ -26,9 +26,7 @@ jobs:
       - name: Run Super-Linter
         uses: super-linter/super-linter@v7.2.1
         with:
-          # Use the correct syntax for passing custom options
           args: |
-            --pylint-config 'pyproject.toml' 
-            --severity WARNING 
-            --paths 'src/**/*.py' 
-            --paths-ignore 'tests/unit/test_*.py' 
+            --config .pylintrc 
+            --relative=yes 
+            --convention pylint

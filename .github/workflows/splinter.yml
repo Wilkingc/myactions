@@ -1,0 +1,33 @@
+name: Python Linting with Super-Linter
+
+on:
+  push:
+    branches: [ "main" ] 
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.11'  # Specify your desired Python version
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  # Install project dependencies (if you have a requirements.txt file)
+
+      - name: Run Super-Linter
+        uses: super-linter/super-linter@v7.2.1
+        with:
+          # Customize linting rules and severity levels as needed
+          pylint-config: 'pyproject.toml'  # Use a custom configuration file (if you have one)
+          severity: WARNING  # Set the overall severity level
+          paths: 'src/**/*.py'  # Include only Python files in the 'src' directory
+          paths-ignore: 'tests/unit/test_*.py'  # Exclude unit test files from linting
